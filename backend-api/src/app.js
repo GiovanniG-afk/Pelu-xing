@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
@@ -5,6 +6,8 @@ import productoRoutes from "./routes/productoRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 import { notFound } from "./middlewares/notFound.js";
+
+dotenv.config();
 
 const app = express();
 const allowedOrigins = (process.env.FRONTEND_URL || "http://localhost:5173")
