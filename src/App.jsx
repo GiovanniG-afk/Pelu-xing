@@ -11,7 +11,7 @@ import {
 
 const translations = {
   es: {
-    loading: "Preparando abrazos...", login: "Iniciar Sesión", register: "Crear Cuenta",
+    loading: "Preparando...", login: "Iniciar Sesión", register: "Crear Cuenta",
     email: "Correo Electrónico", password: "Contraseña", enter: "Entrar",
     name: "Nombre Completo", confirm_pass: "Confirmar Contraseña",
     no_account: "¿No tienes cuenta? Regístrate", already_account: "¿Ya tienes cuenta? Inicia sesión",
@@ -27,7 +27,7 @@ const translations = {
     delivered: "Entregado", admin_dashboard: "Dashboard Admin", revenue: "Ingresos", users: "Usuarios",
     manage_products: "Productos", add_product: "Nuevo Producto", logout: "Cerrar sesión",
     empty_cart: "Tu carrito está vacío", empty_wishlist: "Aún no tienes favoritos",
-    chat_support: "Soporte Pelu-Bot", type_message: "Escribe...", history: "Historial de vistas", sort: "Ordenar",
+    chat_support: "Soporte Bonifacio", type_message: "Escribe...", history: "Historial de vistas", sort: "Ordenar",
     size: "Tamaño", color: "Color", stock: "Stock", description: "Descripción",
     shipping_info: "Datos de Envío", payment_method: "Método de Pago", confirm_order: "Confirmar Pedido", 
     order_success: "¡Pedido completado!", address_req: "Debes llenar tu dirección y ciudad", payment_req: "Llena los datos de la tarjeta",
@@ -37,7 +37,7 @@ const translations = {
     help_center: "Centro de Ayuda", faq: "Preguntas Frecuentes", contact: "Contacto", notifications: "Notificaciones", push_notif: "Notificaciones Push", email_notif: "Correos Promocionales", security: "Privacidad y Seguridad", two_factor: "Autenticación de 2 Pasos", clear_cache: "Borrar Caché", data_storage: "Datos y Almacenamiento", delete_account: "Eliminar Cuenta"
   },
   en: {
-    loading: "Preparing hugs...", login: "Login", register: "Sign Up",
+    loading: "Preparing...", login: "Login", register: "Sign Up",
     email: "Email", password: "Password", enter: "Enter",
     name: "Full Name", confirm_pass: "Confirm Password",
     no_account: "Don't have an account? Sign up", already_account: "Already have an account? Login",
@@ -53,7 +53,7 @@ const translations = {
     delivered: "Delivered", admin_dashboard: "Dashboard", revenue: "Revenue", users: "Users",
     manage_products: "Products", add_product: "New Product", logout: "Logout",
     empty_cart: "Cart is empty", empty_wishlist: "No favorites yet",
-    chat_support: "Pelu-Bot Support", type_message: "Type...", history: "History", sort: "Sort",
+    chat_support: "Bonifacio Support", type_message: "Type...", history: "History", sort: "Sort",
     size: "Size", color: "Color", stock: "Stock", description: "Description",
     shipping_info: "Shipping Info", payment_method: "Payment Method", confirm_order: "Confirm Order", 
     order_success: "Order completed!", address_req: "Fill your address", payment_req: "Fill payment details",
@@ -73,7 +73,7 @@ const themeColors = {
 
 const initialUsers = [
   { id: 'u1', email: 'admin@peluxing.com', password: '123', role: 'admin', name: 'Admin Supremo', avatar: '' },
-  { id: 'u2', email: 'user@correo.com', password: '123', role: 'user', name: 'Usuario Kawaii', avatar: '' }
+  { id: 'u2', email: 'user@correo.com', password: '123', role: 'user', name: 'Usuario', avatar: '' }
 ];
 
 const initialProducts = [
@@ -97,7 +97,7 @@ export default function App() {
   // Sistema de Toasts y Chatbot
   const [toast, setToast] = useState(null); 
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [chatMessages, setChatMessages] = useState([{sender: 'bot', text: '¡Hola! Soy Pelu-Bot 🤖 ¿En qué puedo ayudarte?'}]);
+  const [chatMessages, setChatMessages] = useState([{sender: 'bot', text: '¡Hola! Soy Bonifacio ¿En qué puedo ayudarte?'}]);
 
   // Estados de Base de Datos / Lógica de Negocio
   const [users, setUsers] = useState(initialUsers);
@@ -430,12 +430,12 @@ export default function App() {
                 
                 <div className={`${bgCard} border ${borderSubtle} p-6 rounded-3xl shadow-sm`}>
                   <h3 className={`text-lg font-black mb-2 ${color.text}`}>{t.mission}</h3>
-                  <p className={`text-sm leading-relaxed ${textSubtle}`}>[Edita aquí tu misión: Ejemplo: Brindar los peluches más tiernos y de mejor calidad para llenar de alegría el corazón de nuestros clientes...]</p>
+                  <p className={`text-sm leading-relaxed ${textSubtle}`}>[Edita aquí tu misión: Ejemplo: Brindar los peluches de mejor calidad para de nuestros clientes...]</p>
                 </div>
 
                 <div className={`${bgCard} border ${borderSubtle} p-6 rounded-3xl shadow-sm`}>
                   <h3 className={`text-lg font-black mb-2 ${color.text}`}>{t.vision}</h3>
-                  <p className={`text-sm leading-relaxed ${textSubtle}`}>[Edita aquí tu visión: Ejemplo: Ser la plataforma líder a nivel nacional en la venta y distribución de artículos kawaii y peluches...]</p>
+                  <p className={`text-sm leading-relaxed ${textSubtle}`}>[Edita aquí tu visión: Ejemplo: Ser la plataforma líder a nivel nacional en la venta y distribución de artículos y peluches...]</p>
                 </div>
 
                 <div>
