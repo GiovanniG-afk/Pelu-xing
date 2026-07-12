@@ -430,12 +430,12 @@ export default function App() {
                 
                 <div className={`${bgCard} border ${borderSubtle} p-6 rounded-3xl shadow-sm`}>
                   <h3 className={`text-lg font-black mb-2 ${color.text}`}>{t.mission}</h3>
-                  <p className={`text-sm leading-relaxed ${textSubtle}`}>[Edita aquí tu misión: Ejemplo: Brindar los peluches de mejor calidad para de nuestros clientes...]</p>
+                  <p className={`text-sm leading-relaxed ${textSubtle}`}>Brindar los peluches de mejor calidad para de nuestros clientes</p>
                 </div>
 
                 <div className={`${bgCard} border ${borderSubtle} p-6 rounded-3xl shadow-sm`}>
                   <h3 className={`text-lg font-black mb-2 ${color.text}`}>{t.vision}</h3>
-                  <p className={`text-sm leading-relaxed ${textSubtle}`}>[Edita aquí tu visión: Ejemplo: Ser la plataforma líder a nivel nacional en la venta y distribución de artículos y peluches...]</p>
+                  <p className={`text-sm leading-relaxed ${textSubtle}`}>Ser la plataforma líder a nivel nacional en la venta y distribución de artículos y peluches</p>
                 </div>
 
                 <div>
