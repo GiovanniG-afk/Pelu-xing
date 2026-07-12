@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 const productoSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
+    sku: { type: String, required: true, unique: true },
     price: { type: Number, required: true },
     isOffer: { type: Boolean, default: false },
     discountPrice: { type: Number, default: 0 },

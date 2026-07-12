@@ -1,15 +1,12 @@
 import mongoose from "mongoose";
 
-const resolveMongoUri = () => {
-  return process.env.MONGODB_URI || process.env.MONGO_URI || "mongodb://127.0.0.1:27017/pelu-xing";
-};
-
 const connectDB = async () => {
-  if (mongoose.connection.readyState === 1) {
-    return true;
-  }
+  const mongoUri = process.env.MONGODB_URI;
 
-  const mongoUri = resolveMongoUri();
+  if (!mongoUri) {
+    console.error("Error: no se encontró la variable MONGODB_URI en el .env");
+    process.exit(1);
+  }
 
   try {
     await mongoose.connect(mongoUri, {
@@ -17,13 +14,11 @@ const connectDB = async () => {
       serverSelectionTimeoutMS: 5000,
     });
     console.log("MongoDB conectado correctamente");
-    return true;
   } catch (error) {
-    console.error("No se pudo conectar a MongoDB:", error.message);
-    console.warn("Continuando sin base de datos. Las rutas que dependan de ella devolverán errores hasta que la conexión esté disponible.");
-    return false;
+    console.error("Error al conectar MongoDB");
+    console.error(error.message);
+    process.exit(1);
   }
 };
 
-export { resolveMongoUri };
 export default connectDB;

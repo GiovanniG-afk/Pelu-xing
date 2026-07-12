@@ -2,7 +2,13 @@ import Producto from "../models/Producto.js";
 
 export const obtenerProductos = async (req, res, next) => {
   try {
-    const productos = await Producto.find();
+    const filtro = {};
+
+    if (req.query.enStock === "true") {
+      filtro.stock = { $gt: 0 };
+    }
+
+    const productos = await Producto.find(filtro);
     res.status(200).json(productos);
   } catch (error) {
     next(error);
