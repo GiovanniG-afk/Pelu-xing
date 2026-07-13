@@ -102,11 +102,21 @@ export default function App() {
   // Estados de Base de Datos / Lógica de Negocio
   const [users, setUsers] = useState(initialUsers);
   const [currentUser, setCurrentUser] = useState(null); // NULL = Invitado
-  const [products, setProducts] = useState(initialProducts);
+  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([1]);
   const [orders, setOrders] = useState([]);
   const [history, setHistory] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/productos")
+      .then((res) => res.json())
+      .then((data) => {
+        const productosConId = data.map((p) => ({ ...p, id: p._id }));
+        setProducts(productosConId);
+      })
+      .catch((error) => console.error("Error al cargar productos:", error));
+  }, []);
 
   // Sub-estados de vistas
   const [viewingProduct, setViewingProduct] = useState(null);
