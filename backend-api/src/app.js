@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import productoRoutes from "./routes/productoRoutes.js";
+import pedidoRoutes from "./routes/pedidoRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 import { notFound } from "./middlewares/notFound.js";
@@ -27,6 +28,7 @@ app.get("/health", (req, res) => {
 });
 
 app.use("/api/productos", productoRoutes);
+app.use("/api/pedidos", pedidoRoutes);
 app.use("/api/auth", authRoutes);
 
 app.use(notFound);

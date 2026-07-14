@@ -191,9 +191,37 @@ export default function App() {
   };
 
   const processCheckout = () => {
+    const totalCalculado = cart.reduce((sum, item) => sum + ((item.cartPrice || item.price) * item.qty), 0);
+
+    const pedidoParaBackend = {
+      cliente: {
+        nombre: shippingForm.name,
+        direccion: shippingForm.address,
+        ciudad: shippingForm.city,
+      },
+      items: cart.map((item) => ({
+        producto: item._id,
+        nombre: item.name,
+        cantidad: item.qty,
+        precioUnitario: item.cartPrice || item.price,
+      })),
+      total: totalCalculado,
+    };
+
+    fetch("http://localhost:3000/api/pedidos", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(pedidoParaBackend),
+    })
+      .then((res) => res.json())
+      .then((pedidoGuardado) => {
+        console.log("Pedido guardado en backend:", pedidoGuardado);
+      })
+      .catch((error) => console.error("Error al guardar el pedido:", error));
+
     const newOrder = { 
       id: `PX-${Math.floor(Math.random()*10000)}`, date: new Date().toISOString().split('T')[0], 
-      total: cart.reduce((sum, item) => sum + ((item.cartPrice || item.price) * item.qty), 0), status: 'pending', items: cart 
+      total: totalCalculado, status: 'pending', items: cart 
     };
     setOrders([newOrder, ...orders]);
     setCart([]);
