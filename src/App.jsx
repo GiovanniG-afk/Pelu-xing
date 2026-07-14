@@ -109,7 +109,7 @@ export default function App() {
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/productos")
+    fetch("https://pelu-xing-xiq8.vercel.app/api/productos")
       .then((res) => res.json())
       .then((data) => {
         const productosConId = data.map((p) => ({ ...p, id: p._id }));
@@ -208,7 +208,7 @@ export default function App() {
       total: totalCalculado,
     };
 
-    fetch("http://localhost:3000/api/pedidos", {
+    fetch("https://pelu-xing-xiq8.vercel.app/api/pedidos", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(pedidoParaBackend),
